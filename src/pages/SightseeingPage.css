@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://www.dgtourpass.com/data/file/shop_mobile/3661025583_daqTAPy4_48026ca56403f10ba4f0206522a7c6c612e799ba.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 250px;
+}

@@ -3,7 +3,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import MainPage from "./pages/MainPage";
 import SightseeingPage from "./pages/SightseeingPage";
-import EventPage from "./pages/MainPage";
+import EventPage from "./pages/EventPage";
 
 const Layout = () => {
   return (
