@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-family: "Black Han Sans", sans-serif;
+}

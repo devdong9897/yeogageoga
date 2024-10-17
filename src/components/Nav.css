@@ -1,0 +1,20 @@
+header .logo {
+  cursor: pointer;
+}
+
+header .logo h1 {
+  color: #98d5f4;
+}
+
+header .main-menu {
+  cursor: pointer;
+}
+
+header .main-menu li {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+header .main-menu li:hover {
+  color: #98d5f4;
+}
