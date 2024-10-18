@@ -61,34 +61,32 @@ const SectionWrapper = styled.section`
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 
 const Card = styled.div`
-  width: calc(33.333% - 20px);
-  height: 200px;
+  width: calc(33.33% - 30px);
   margin: 10px;
-  background-color: #f0f0f0;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 10px;
+  overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  box-sizing: border-box;
+  cursor: pointer;
 
   img {
     width: 100%;
-    height: 150px;
+    height: 250px;
     object-fit: cover;
-    border-radius: 5px 5px 0 0;
   }
 
   h2 {
-    margin-top: 10px;
+    margin: 10px 0;
     font-size: 1rem;
-    line-height: 1.2;
+    text-align: center;
+    padding: 0 10px;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
   }
 `;
