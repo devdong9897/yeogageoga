@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import "./Nav.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Nav = () => {
+  const location = useLocation();
+
   return (
     <NavWrapper>
       <Header>
@@ -14,13 +16,28 @@ const Nav = () => {
         <MenuContainer>
           <ul className="main-menu">
             <li>
-              <Link to="/">메인</Link>
+              <Link
+                to="/"
+                className={location.pathname === "/" ? "action" : ""}
+              >
+                메인
+              </Link>
             </li>
             <li>
-              <Link to="/sightseeing">관광명소</Link>
+              <Link
+                to="/sightseeing"
+                className={location.pathname === "/sightseeing" ? "action" : ""}
+              >
+                관광명소
+              </Link>
             </li>
             <li>
-              <Link to="/event">행사/축제</Link>
+              <Link
+                to="/event"
+                className={location.pathname === "/event" ? "action" : ""}
+              >
+                행사/축제
+              </Link>
             </li>
           </ul>
         </MenuContainer>
@@ -58,5 +75,10 @@ const MenuContainer = styled.div`
   a {
     text-decoration: none;
     color: inherit;
+
+    &.action {
+      color: #007bff;
+      font-weight: bold;
+    }
   }
 `;
