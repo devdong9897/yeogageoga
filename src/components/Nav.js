@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./Nav.css";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -12,9 +13,15 @@ const Nav = () => {
 
         <MenuContainer>
           <ul className="main-menu">
-            <li>메인</li>
-            <li>관광명소</li>
-            <li>행사/축제</li>
+            <li>
+              <Link to="/">메인</Link>
+            </li>
+            <li>
+              <Link to="/sightseeing">관광명소</Link>
+            </li>
+            <li>
+              <Link to="/event">행사/축제</Link>
+            </li>
           </ul>
         </MenuContainer>
       </Header>
@@ -46,5 +53,10 @@ const MenuContainer = styled.div`
 
   li {
     margin: 0 14px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 `;
