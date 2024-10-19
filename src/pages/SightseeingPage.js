@@ -5,6 +5,7 @@ import axios, { getAreaBasedList } from "../api/axios";
 
 const SightseeingPage = () => {
   const [sightseeingData, setSightseeingData] = useState([]);
+
   const fetchSightseeingData = async () => {
     try {
       const response = await getAreaBasedList();
@@ -58,7 +59,7 @@ const Container = styled.div`
 
 const SectionWrapper = styled.section`
   width: 80%;
-  margin: 0 auto;
+  margin: 50px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -78,6 +79,11 @@ const Card = styled.div`
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
   }
 
   h2 {
