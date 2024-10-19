@@ -7,13 +7,9 @@ const SightseeingPage = () => {
   const [sightseeingData, setSightseeingData] = useState([]);
 
   const fetchSightseeingData = async () => {
-    try {
-      const response = await getAreaBasedList();
-      console.log(response);
-      setSightseeingData(response.response.body.items.item || []);
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await getAreaBasedList();
+    console.log(response);
+    setSightseeingData(response.response.body.items.item || []);
   };
 
   useEffect(() => {
