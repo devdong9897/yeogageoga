@@ -18,7 +18,7 @@ const SightseeingPage = () => {
   return (
     <div>
       <Container>
-        <h2>관광명소</h2>
+        <h2>관광명소 test</h2>
       </Container>
 
       <SectionWrapper>
