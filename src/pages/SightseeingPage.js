@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./SightseeingPage.css";
 import styled from "styled-components";
 import { getAreaBasedList } from "../api/axios";
+import SightseeingPageModal from "../Modal";
 
 const SightseeingPage = () => {
   const [sightseeingData, setSightseeingData] = useState([]);
@@ -12,6 +13,11 @@ const SightseeingPage = () => {
   // 더 불러올 데이터 있는지 여부
   const [hasMore, setHasMore] = useState(true);
 
+  // 클릭된 한개의 상세 관광정보
+  const [sightseeingSelected, setSightseeingSelected] = useState(null);
+  // 모달
+  const [modalOpen, setModalOpen] = useState(false);
+
   const fetchSightseeingData = async () => {
     // 더 불러올 데이터가 없거나 로딩중이면 중단.
     if (!hasMore || isLoading) return;
@@ -20,6 +26,7 @@ const SightseeingPage = () => {
     const response = await getAreaBasedList(pageNo, 10);
     const newData = response.response.body.items.item || [];
     console.log(response);
+    // 이전데이터와 새로운 데이터 합치기.
     setSightseeingData((prev) => [...prev, ...newData]);
     setIsLoading(false);
 
@@ -53,21 +60,34 @@ const SightseeingPage = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleClick = (item) => {
+    setSightseeingSelected(item);
+    setModalOpen(true);
+  };
+
   return (
     <div>
       <Container>
-        <h2>관광명소 test</h2>
+        <h2>관광명소</h2>
       </Container>
       <SectionWrapper>
         {sightseeingData.map((item) => (
-          <Card key={item.contentid}>
+          <Card key={item.contentid} onClick={() => handleClick(item)}>
             <img src={item.firstimage} />
             <h2>{item.title}</h2>
           </Card>
         ))}
       </SectionWrapper>
-      {isLoading && <p>새로운 데이터 불러오는중...</p>}
-      {!hasMore && <p>No more data available</p>}
+      {isLoading && <p className="new-data">새로운 데이터 불러오는중...</p>}
+      {!hasMore && <p className="no-data">대구 관광정보가 없습니다.</p>}
+
+      {modalOpen && (
+        <SightseeingPageModal
+          sightseeingSelected={sightseeingSelected}
+          setModalOpen={setModalOpen}
+        />
+      )}
     </div>
   );
 };
