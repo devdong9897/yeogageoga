@@ -11,12 +11,14 @@ const instance = axios.create({
   },
 });
 
-export const getAreaBasedList = async () => {
+export const getAreaBasedList = async (pageNo = 1, numOfRows = 10) => {
   try {
     const response = await instance.get("/areaBasedList1", {
       params: {
         areaCode: 4,
         contentTypeId: 12,
+        pageNo,
+        numOfRows,
       },
     });
     return response.data;
