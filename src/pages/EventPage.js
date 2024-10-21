@@ -17,7 +17,7 @@ const Event = () => {
   return (
     <div>
       <Wrapper>
-        <h2>행사/축제</h2>
+        <h2>행사/축제test</h2>
       </Wrapper>
       {festivalData.map((festival) => (
         <Container key={festival.contentid}>
