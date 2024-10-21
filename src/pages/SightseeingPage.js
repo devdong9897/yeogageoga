@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./SightseeingPage.css";
 import styled from "styled-components";
-import { getAreaBasedList } from "../api/axios";
+import { getAreaBasedList, getDetailIntro } from "../api/axios";
 import SightseeingPageModal from "../Modal";
 
 const SightseeingPage = () => {
   const [sightseeingData, setSightseeingData] = useState([]);
+
   // 현재 페이지
   const [pageNo, setPageNo] = useState(1);
   // 데이터 로딩
@@ -38,7 +39,7 @@ const SightseeingPage = () => {
   // 스크롤 이벤트
   const handleScroll = () => {
     if (
-      // 현재 창의 높이   +  현재 얼마나 스크롤 했는지...
+      // 현재 창의 높이 + 현재 얼마나 스크롤 했는지...
       window.innerHeight + window.scrollY >=
         // 사용자가 화면을 끝까지 내렸을 때 조건이 true가 됨.
         document.documentElement.scrollHeight - 1 &&
@@ -61,8 +62,26 @@ const SightseeingPage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleClick = (item) => {
-    setSightseeingSelected(item);
+  const handleClick = async (item) => {
+    // 첫번째 데이터는 이미지가 있으나 두번째 데이터는 이미지정보가 없으므로,
+    // 변수를 만들어 데이터를 넣고 이걸 객체로 만들어서 전달.
+    const imageData = item.firstimage;
+    const titleData = item.title;
+    const addr1Data = item.addr1;
+    const mapx = item.mapx;
+    const mapy = item.mapy;
+    console.log(mapx, mapy);
+
+    const detailData = await getDetailIntro(item.contentid);
+
+    setSightseeingSelected({
+      ...detailData.response.body.items.item[0],
+      firstimage: imageData,
+      title: titleData,
+      addr1: addr1Data,
+      mapx: mapx,
+      mapy: mapy,
+    });
     setModalOpen(true);
   };
 

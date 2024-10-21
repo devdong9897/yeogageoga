@@ -27,6 +27,20 @@ export const getAreaBasedList = async (pageNo = 1, numOfRows = 10) => {
   }
 };
 
-getAreaBasedList();
+// 관광 상세정보 api
+export const getDetailIntro = async (contentId) => {
+  try {
+    const response = await instance.get("/detailIntro1", {
+      params: {
+        contentId,
+        contentTypeId: 12,
+      },
+    });
+    console.log("ggg", response);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export default instance;
