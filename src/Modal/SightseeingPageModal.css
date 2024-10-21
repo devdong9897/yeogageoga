@@ -20,6 +20,22 @@
   width: 80%;
 }
 
+/* 스크롤바 스타일링 */
+.modal-content::-webkit-scrollbar {
+  /* 스크롤바의 너비 */
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  /* 스크롤바 배경 */
+  background: #f1f1f1;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #98d5f4;
+  border-radius: 10px;
+}
+
 .modal-content h2 {
   text-align: start;
 }
