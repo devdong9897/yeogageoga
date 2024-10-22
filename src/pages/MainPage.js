@@ -9,10 +9,8 @@ const MainPage = () => {
     <>
       <ImageSlider />
       <YouTubeVideo />
-      <div>
-        대구 테마명소
-        <ThemeBanner />
-      </div>
+      <p className="themetest">대구 테마명소</p>
+      <ThemeBanner />
       <div>대구 추천명소</div>
       <div>대구 TOP명소</div>
     </>

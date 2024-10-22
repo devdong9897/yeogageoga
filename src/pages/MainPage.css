@@ -73,7 +73,6 @@
 .y-viedo {
   position: relative;
   margin: 0 auto;
-  top: 20px;
   padding-bottom: 30%;
   height: 0;
   overflow: hidden;
@@ -92,6 +91,79 @@
 
 /* 유튜브 끝 */
 
-/* 배너 슬라이드 */
+/* 명소 슬라이드 */
+.themetest {
+  text-align: center;
+}
+.place-banner-container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-/* 배너 슬라이드 끝 */
+.place-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.place-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.place-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.place-button-prev,
+.place-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 28px;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+}
+
+.place-button-prev {
+  left: 30px;
+}
+
+.place-button-next {
+  right: 30px;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 명소 슬라이드 끝 */
