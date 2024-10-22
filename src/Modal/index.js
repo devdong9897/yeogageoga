@@ -3,31 +3,25 @@ import "./SightseeingPageModal.css";
 import Map from "../components/Map";
 
 const SightseeingPageModal = ({ sightseeingSelected, setModalOpen }) => {
+  const { title, addr1, firstimage, overview } = sightseeingSelected;
+
   const expGuide = sightseeingSelected.expguide;
 
   // 지도 경도, 위도표시
   const latitude = sightseeingSelected.mapy;
   const longitude = sightseeingSelected.mapx;
 
-  const formattedExpGuide =
-    expGuide && expGuide.trim() !== ""
-      ? expGuide.replace(/<br\s*\/?>/gi, "\n")
-      : "명소에 대한 설명이 없습니다.";
-
   return (
     <div className="modal">
       <div className="modal-content">
         <button onClick={() => setModalOpen(false)}>X</button>
-        <h2>{sightseeingSelected.title}</h2>
-        <img
-          src={sightseeingSelected.firstimage}
-          alt={sightseeingSelected.title}
-        />
-        <p>주소: {sightseeingSelected.addr1}</p>
+        <h2>{title}</h2>
+        <img src={firstimage} alt={title} />
+        <p>주소: {addr1}</p>
         <p>전화번호: {sightseeingSelected.infocenter || "정보에 없음"}</p>
         <div className="modal-border"></div>
-        <div>
-          <p>{formattedExpGuide}</p>
+        <div className="description">
+          <p>{overview}</p>
         </div>
 
         <div className="map">

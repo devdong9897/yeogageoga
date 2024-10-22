@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./SightseeingPage.css";
 import styled from "styled-components";
-import { getAreaBasedList, getDetailIntro } from "../api/axios";
+import { getAreaBasedList, getDetailCommon } from "../api/axios";
 import SightseeingPageModal from "../Modal";
 
 const SightseeingPage = () => {
@@ -72,10 +72,13 @@ const SightseeingPage = () => {
     const mapy = item.mapy;
     console.log(mapx, mapy);
 
-    const detailData = await getDetailIntro(item.contentid);
+    const detailData = await getDetailCommon(item.contentid);
+    console.log("detail", detailData);
+
+    const detailContents = detailData.response.body.items.item[0];
 
     setSightseeingSelected({
-      ...detailData.response.body.items.item[0],
+      ...detailContents,
       firstimage: imageData,
       title: titleData,
       addr1: addr1Data,

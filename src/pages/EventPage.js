@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { getAreaBasedList } from "../api/axios";
+import { getAreaBasedList, getDetailCommon } from "../api/axios";
 import styled from "styled-components";
+import "./EventPage.css";
 
 const Event = () => {
   const [festivalData, setFestivalData] = useState([]);
+  const [festivalDetail, setFestivalDetail] = useState([]);
 
   useEffect(() => {
     getFestivalEvent();
+
+    getDetailFestival();
   }, []);
 
   const getFestivalEvent = async () => {
@@ -14,10 +18,15 @@ const Event = () => {
     console.log("행사", data.response.body.items.item);
     setFestivalData(data.response.body.items.item);
   };
+
+  const getDetailFestival = async (festival) => {
+    const data = await getDetailCommon(festival);
+    console.log("디테일", data);
+  };
   return (
     <div>
       <Wrapper>
-        <h2>행사/축제test</h2>
+        <h2>행사/축제</h2>
       </Wrapper>
       {festivalData.map((festival) => (
         <Container key={festival.contentid}>
@@ -26,8 +35,14 @@ const Event = () => {
           </ImageWrapper>
           <Contents>
             <h2>{festival.title}</h2>
-            <p>위치: </p>
-            <p>장소: </p>
+
+            <p>
+              <span className="location">주소</span> {festival.addr1}
+            </p>
+
+            <p>
+              <span className="phone">전화번호</span> {festival.tel}
+            </p>
           </Contents>
         </Container>
       ))}
@@ -57,9 +72,10 @@ const Wrapper = styled.div`
 
 const Container = styled.section`
   display: flex;
-  width: 80%;
+  width: 60%;
   margin: 20px auto;
-  border: 1px solid black;
+  border: 1px solid #e1e1e1;
+  border-radius: 15px;
 `;
 
 const ImageWrapper = styled.div`
@@ -68,9 +84,15 @@ const ImageWrapper = styled.div`
     width: 350px;
     height: auto;
     object-fit: cover;
+    border-radius: 15px;
   }
 `;
 
 const Contents = styled.div`
   margin: 15px 20px;
+
+  .location {
+    background: green;
+    color: #fff;
+  }
 `;

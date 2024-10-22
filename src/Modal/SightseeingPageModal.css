@@ -20,6 +20,10 @@
   width: 80%;
 }
 
+.modal-content .description {
+  text-align: center;
+}
+
 /* 스크롤바 스타일링 */
 .modal-content::-webkit-scrollbar {
   /* 스크롤바의 너비 */
