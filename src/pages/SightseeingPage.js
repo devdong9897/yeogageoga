@@ -73,7 +73,6 @@ const SightseeingPage = () => {
     console.log(mapx, mapy);
 
     const detailData = await getDetailCommon(item.contentid);
-    console.log("detail", detailData);
 
     const detailContents = detailData.response?.body?.items?.item[0];
 
