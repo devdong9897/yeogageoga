@@ -75,7 +75,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 150px;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://www.dgtourpass.com/data/file/shop_mobile/3661025583_daqTAPy4_48026ca56403f10ba4f0206522a7c6c612e799ba.jpg");
+    url("https://img.insight.co.kr/static/2022/02/26/700/img_20220226080302_ok63k71j.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

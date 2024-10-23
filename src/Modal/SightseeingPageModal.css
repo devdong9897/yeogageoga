@@ -20,8 +20,13 @@
   width: 80%;
 }
 
+.modal .modal-content h2 {
+  text-align: center;
+}
+
 .modal-content .description {
   text-align: center;
+  font-weight: 700;
 }
 
 /* 스크롤바 스타일링 */

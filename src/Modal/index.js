@@ -16,7 +16,14 @@ const SightseeingPageModal = ({ sightseeingSelected, setModalOpen }) => {
       <div className="modal-content">
         <button onClick={() => setModalOpen(false)}>X</button>
         <h2>{title}</h2>
-        <img src={firstimage} alt={title} />
+        <img
+          src={
+            firstimage
+              ? firstimage
+              : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FyvvVQ%2Fbtrk9tbw4G4%2Fu7Ztp6kJBDqQRX45wxYg8K%2Fimg.gif"
+          }
+          alt={title}
+        />
         <p>주소: {addr1}</p>
         <p>전화번호: {sightseeingSelected.infocenter || "정보에 없음"}</p>
         <div className="modal-border"></div>

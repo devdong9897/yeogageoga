@@ -26,7 +26,6 @@ const SightseeingPage = () => {
     setIsLoading(true);
     const response = await getAreaBasedList(pageNo, 10);
     const newData = response.response?.body?.items?.item || [];
-    console.log(response);
     // 이전데이터와 새로운 데이터 합치기.
     setSightseeingData((prev) => [...prev, ...newData]);
     setIsLoading(false);
@@ -125,7 +124,7 @@ const Container = styled.div`
   width: 100%;
   height: 150px;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://www.dgtourpass.com/data/file/shop_mobile/3661025583_daqTAPy4_48026ca56403f10ba4f0206522a7c6c612e799ba.jpg");
+    url("https://nam.daegu.kr/cms_images/gallery/202208290346022454g4.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
