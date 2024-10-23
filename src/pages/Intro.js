@@ -1,10 +1,10 @@
-// Intro.js
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./Intro.css";
 
 const Intro = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const text = "여가거가?";
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,14 +15,18 @@ const Intro = () => {
 
   return (
     <div className="intro-container">
-      <motion.h1
-        className="intro-text"
-        initial={{ opacity: 0, y: 50 }} // 초기 상태: 투명도 0, Y축으로 50px 아래 위치
-        animate={{ opacity: isVisible ? 1 : 0, y: 0 }} // 애니메이션 상태: 투명도 1, Y축 0
-        transition={{ duration: 1, ease: "easeOut" }} // 애니메이션 시간: 1초
-      >
-        여가거가?
-      </motion.h1>
+      <div className="intro-text">
+        {text.split("").map((char, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: 0 }}
+            transition={{ duration: 0.3, delay: index * 0.3, ease: "easeOut" }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </div>
     </div>
   );
 };
