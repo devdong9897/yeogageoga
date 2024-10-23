@@ -96,7 +96,13 @@ const SightseeingPage = () => {
       <SectionWrapper>
         {sightseeingData.map((item) => (
           <Card key={item.contentid} onClick={() => handleClick(item)}>
-            <img src={item.firstimage} />
+            <img
+              src={
+                item.firstimage
+                  ? item.firstimage
+                  : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FyvvVQ%2Fbtrk9tbw4G4%2Fu7Ztp6kJBDqQRX45wxYg8K%2Fimg.gif"
+              }
+            />
             <h2>{item.title}</h2>
           </Card>
         ))}
