@@ -25,7 +25,7 @@ const SightseeingPage = () => {
 
     setIsLoading(true);
     const response = await getAreaBasedList(pageNo, 10);
-    const newData = response.response.body.items.item || [];
+    const newData = response.response?.body?.items?.item || [];
     console.log(response);
     // 이전데이터와 새로운 데이터 합치기.
     setSightseeingData((prev) => [...prev, ...newData]);
@@ -75,7 +75,7 @@ const SightseeingPage = () => {
     const detailData = await getDetailCommon(item.contentid);
     console.log("detail", detailData);
 
-    const detailContents = detailData.response.body.items.item[0];
+    const detailContents = detailData.response?.body?.items?.item[0];
 
     setSightseeingSelected({
       ...detailContents,

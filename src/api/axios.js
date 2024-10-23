@@ -34,12 +34,12 @@ export const getAreaBasedList = async (
 };
 
 // 관광 상세정보 api
-export const getDetailCommon = async (contentId) => {
+export const getDetailCommon = async (contentId, contentTypeId) => {
   try {
     const response = await instance.get("/detailCommon1", {
       params: {
         contentId: contentId,
-        contentTypeId: 12, // 관광지(12)를 예시로 사용, 필요시 변경 가능
+        contentTypeId,
         defaultYN: "Y", // 기본 정보 조회 여부
         firstImageYN: "Y", // 이미지 정보 조회 여부
         areacodeYN: "Y", // 지역 코드 조회 여부

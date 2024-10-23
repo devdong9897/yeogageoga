@@ -5,23 +5,37 @@ import "./EventPage.css";
 
 const Event = () => {
   const [festivalData, setFestivalData] = useState([]);
-  const [festivalDetail, setFestivalDetail] = useState([]);
 
   useEffect(() => {
     getFestivalEvent();
-
-    getDetailFestival();
   }, []);
 
+  // 축제 행사목록
   const getFestivalEvent = async () => {
-    const data = await getAreaBasedList(1, 10, 15);
-    console.log("행사", data.response.body.items.item);
-    setFestivalData(data.response.body.items.item);
+    const response = await getAreaBasedList(1, 10, 15);
+    const festivals = response.response.body.items.item;
+    console.log("행사", festivals);
+
+    const updatedFestivals = [];
+    for (const festival of festivals) {
+      const overview = await getFestivalDetail(festival.contentid);
+      updatedFestivals.push({ ...festival, overview });
+    }
+    setFestivalData(updatedFestivals);
   };
 
-  const getDetailFestival = async (festival) => {
-    const data = await getDetailCommon(festival);
-    console.log("디테일", data);
+  // 축제 상세정보
+  const getFestivalDetail = async (contentid) => {
+    try {
+      const response = await getDetailCommon(contentid);
+      console.log("여기 행사 상세 정보", response);
+
+      return (
+        response.response.body.items.item[0].overview || "상세 설명이 없습니다."
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>
@@ -42,6 +56,11 @@ const Event = () => {
 
             <p>
               <span className="phone">전화번호</span> {festival.tel}
+            </p>
+
+            <p>
+              <span className="description">설명</span>
+              <br /> {festival.overview}
             </p>
           </Contents>
         </Container>
@@ -90,9 +109,4 @@ const ImageWrapper = styled.div`
 
 const Contents = styled.div`
   margin: 15px 20px;
-
-  .location {
-    background: green;
-    color: #fff;
-  }
 `;

@@ -21,7 +21,7 @@ const SightseeingPageModal = ({ sightseeingSelected, setModalOpen }) => {
         <p>전화번호: {sightseeingSelected.infocenter || "정보에 없음"}</p>
         <div className="modal-border"></div>
         <div className="description">
-          <p>{overview}</p>
+          <p>{sightseeingSelected?.overview}</p>
         </div>
 
         <div className="map">

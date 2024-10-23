@@ -1,12 +1,39 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gasoek+One&family=Noto+Sans+KR:wght@100..900&display=swap");
-
-h2 {
-  font-family: "Gasoek One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+p .location {
+  display: inline-block;
+  width: 60px;
+  height: 19px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50px;
+  color: #fff;
+  background-color: #38a58b;
+  text-align: center;
+  line-height: 18px;
 }
 
-p {
-  font-family: "Noto Sans KR", sans-serif;
-} */
+p .phone {
+  display: inline-block;
+  width: 60px;
+  height: 19px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50px;
+  color: #fff;
+  background-color: #5493d9;
+  text-align: center;
+  line-height: 18px;
+}
+
+p .description {
+  display: inline-block;
+  width: 60px;
+  height: 19px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50px;
+  margin-bottom: 15px;
+  color: #fff;
+  background-color: #6b45a5;
+  text-align: center;
+  line-height: 18px;
+}
