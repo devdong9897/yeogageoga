@@ -5,6 +5,7 @@ import YouTubeVideo from "../components/YouTube";
 import ThemeBanner from "../components/ThemeBanner";
 import GoodBanner from "../components/GoodBanner";
 import BestBanner from "../components/BestBanner";
+import PortalSite from "../components/PortalSite";
 
 const MainPage = () => {
   return (
@@ -21,6 +22,8 @@ const MainPage = () => {
       <div className="banner-section" />
       <p className="themetext">대구 TOP명소</p>
       <BestBanner />
+      <div className="banner-section" />
+      <PortalSite />
       <div className="banner-section" />
     </>
   );

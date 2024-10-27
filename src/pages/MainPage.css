@@ -171,7 +171,7 @@
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
-  color: #333;
+  color: #87ceeb;
 }
 
 /* 테마 명소 슬라이드 끝 */
@@ -208,3 +208,37 @@
   margin: 0 auto 20px;
   max-width: 1280px;
 }
+
+/* 포탈 사이트 */
+.portal-site {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.portal-site-title {
+  font-size: 24px;
+  color: #87ceeb;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.portal-site-logos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.portal-site-logo {
+  width: calc(33.33% - 20px);
+}
+
+.portal-site-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 포탈 사이트 끝 */
