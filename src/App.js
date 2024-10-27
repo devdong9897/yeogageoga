@@ -33,7 +33,7 @@ function App() {
         // 인트로가 끝나지 않았으면 인트로 표시
         <Intro />
       ) : (
-        // 인트로가 끝나면 메인 페이지로 이동
+        // 인트로가 끝나면 메인 페이지로 이동`
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<MainPage />} />

@@ -23,7 +23,6 @@
   width: 100%;
   height: auto;
   max-height: 400px;
-  object-fit: cover;
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
   opacity: 1;
 }
@@ -91,8 +90,8 @@
 
 /* 유튜브 끝 */
 
-/* 명소 슬라이드 */
-.themetest {
+/* 테마 명소 슬라이드 */
+.themetext {
   text-align: center;
 }
 .place-banner-container {
@@ -166,4 +165,46 @@
   align-items: center;
   justify-content: center;
 }
-/* 명소 슬라이드 끝 */
+
+.themetext {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+}
+
+/* 테마 명소 슬라이드 끝 */
+
+/* 추천 명소 슬라이드 */
+.good-button-prev {
+  left: 30px;
+}
+
+.good-button-prev {
+  right: 30px;
+}
+/* 그 외 css는 추천 명소와 동일 */
+
+/* 추천 명소 슬라이드 끝 */
+
+/* TOP 명소 슬라이드 */
+.best-button-prev {
+  left: 30px;
+}
+
+.best-button-prev {
+  right: 30px;
+}
+/* 그 외 css는 추천 명소와 동일 */
+
+/* TOP 명소 슬라이드 끝 */
+
+/* 배너 구분선을 위한 스타일 */
+.banner-section {
+  border-bottom: 2px solid #ddd;
+  padding-top: 40px;
+  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  max-width: 1280px;
+}

@@ -10,17 +10,18 @@ const MainPage = () => {
   return (
     <>
       <ImageSlider />
+      <div className="banner-section" />
       <YouTubeVideo />
-      <p className="themetest">대구 테마명소</p>
+      <div className="banner-section" />
+      <p className="themetext">대구 테마명소</p>
       <ThemeBanner />
-      <div>
-        <p className="themetest">대구 추천명소</p>
-        <GoodBanner />
-      </div>
-      <div>
-        <p className="themetest">대구 TOP명소</p>
-        <BestBanner />
-      </div>
+      <div className="banner-section" />
+      <p className="themetext">대구 추천명소</p>
+      <GoodBanner />
+      <div className="banner-section" />
+      <p className="themetext">대구 TOP명소</p>
+      <BestBanner />
+      <div className="banner-section" />
     </>
   );
 };
