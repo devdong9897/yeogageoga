@@ -9,12 +9,18 @@ const Intro = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 500);
+    }, 700);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="intro-container">
+      <motion.div
+        className="intro-image"
+        initial={{ opacity: 0, scale: 1.2 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      />
       <div className="intro-text">
         {text.split("").map((char, index) => (
           <motion.span
