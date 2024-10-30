@@ -6,11 +6,13 @@ import MainPage from "./pages/MainPage";
 import SightseeingPage from "./pages/SightseeingPage";
 import EventPage from "./pages/EventPage";
 import Intro from "./pages/Intro";
+import Footer from "./components/Footer";
 const Layout = () => {
   return (
     <div>
       <Nav />
       <Outlet />
+      <Footer />
     </div>
   );
 };
@@ -33,7 +35,7 @@ function App() {
         // 인트로가 끝나지 않았으면 인트로 표시
         <Intro />
       ) : (
-        // 인트로가 끝나면 메인 페이지로 이동
+        // 인트로가 끝나면 메인 페이지로 이동`
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<MainPage />} />

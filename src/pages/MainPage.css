@@ -23,7 +23,6 @@
   width: 100%;
   height: auto;
   max-height: 400px;
-  object-fit: cover;
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
   opacity: 1;
 }
@@ -91,71 +90,7 @@
 
 /* 유튜브 끝 */
 
-/* 명소 슬라이드 */
-.themetest {
-  text-align: center;
-}
-.place-banner-container {
-  position: relative;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.place-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.place-image {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: cover;
-}
-
-.place-text {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  z-index: 2;
-}
-
-.place-button-prev,
-.place-button-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 28px;
-  z-index: 1;
-  width: 50px;
-  height: 50px;
-}
-
-.place-button-prev {
-  left: 30px;
-}
-
-.place-button-next {
-  right: 30px;
-}
-
+/* 슬라이드 */
 .banner-container {
   position: relative;
   width: 100%;
@@ -166,4 +101,146 @@
   align-items: center;
   justify-content: center;
 }
-/* 명소 슬라이드 끝 */
+
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  text-align: center;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+.card-content {
+  padding: 15px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.place-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tour-type {
+  font-size: 14px;
+  color: #666;
+}
+
+.date {
+  font-size: 14px;
+  color: #666;
+  margin-left: 10px;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 28px;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.themetext {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  color: #87ceeb;
+}
+
+/* 슬라이드 끝 */
+
+/* 네비게이션 버튼 */
+.button-prev-good {
+  left: 10px;
+}
+
+.button-next-good {
+  right: 10px;
+}
+
+.button-prev-best {
+  left: 10px;
+}
+
+.button-next-best {
+  right: 10px;
+}
+
+.button-prev-theme {
+  left: 10px;
+}
+
+.button-next-theme {
+  right: 10px;
+}
+/* 네비게이션 버튼 끝 */
+
+/* 배너 구분선을 위한 스타일 */
+.banner-section {
+  border-bottom: 2px solid #ddd;
+  padding-top: 40px;
+  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  max-width: 1280px;
+}
+
+/* 포탈 사이트 */
+.portal-site {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.portal-site-title {
+  font-size: 24px;
+  color: #87ceeb;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.portal-site-logos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.portal-site-logo {
+  width: calc(33.33% - 20px);
+}
+
+.portal-site-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 포탈 사이트 끝 */
