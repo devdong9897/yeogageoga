@@ -6,11 +6,13 @@ import MainPage from "./pages/MainPage";
 import SightseeingPage from "./pages/SightseeingPage";
 import EventPage from "./pages/EventPage";
 import Intro from "./pages/Intro";
+import Footer from "./components/Footer";
 const Layout = () => {
   return (
     <div>
       <Nav />
       <Outlet />
+      <Footer />
     </div>
   );
 };
