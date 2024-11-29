@@ -3,44 +3,31 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "../pages/MainPage.css";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { fetchThemeData3 } from "../api/axios";
 
-const BestBanner = () => {
+const DaeguJunggu = () => {
   const swiperRef = useRef(null);
-  // 버튼을 독립적으로 움직이기 위해 useRef를 사용
+  const [bestData, setBestData] = useState([]);
 
-  const bestData = [
-    {
-      image: "/images/test1.jpg",
-      placeName: "장소1",
-      tourType: "카페 투어 중",
-      date: "2023년 12월 27일",
-    },
-    {
-      image: "/images/test2.jpg",
-      placeName: "장소2",
-      tourType: "유원지 투어",
-      date: "2024년 1월 10일",
-    },
-    {
-      image: "/images/test3.jpg",
-      placeName: "장소3",
-      tourType: "도시 탐방",
-      date: "2024년 2월 14일",
-    },
-    {
-      image: "/images/test1.jpg",
-      placeName: "장소4",
-      tourType: "힐링 투어",
-      date: "2024년 3월 1일",
-    },
-    {
-      image: "/images/test2.jpg",
-      placeName: "장소5",
-      tourType: "문화 유적 투어",
-      date: "2024년 4월 5일",
-    },
-  ];
+  useEffect(() => {
+    getBestData();
+  }, []);
+
+  const getBestData = async () => {
+    const response = await fetchThemeData3();
+    console.log(response);
+    if (response && response.response && response.response.body) {
+      const data = response.response.body.items.item;
+      setBestData(data);
+    }
+  };
+
+  // 기본 이미지 순서를 생성하는 함수
+  const getDefaultImage = (index) => {
+    const imageIndex = (index % 3) + 1; // 예: 3개의 기본 이미지를 순차적으로 사용
+    return `/images/test${imageIndex}.jpg`;
+  };
 
   return (
     <div className="banner-container">
@@ -59,15 +46,17 @@ const BestBanner = () => {
           <SwiperSlide key={index}>
             <div className="card">
               <img
-                src={best.image}
+                src={best.image || getDefaultImage(index)} // 이미지가 없으면 기본 이미지 사용
                 alt={`Slide ${index + 1}`}
                 className="card-image"
               />
               <div className="card-content">
-                <div className="place-name">{best.placeName}</div>
+                <div className="place-name">{best.rlteTatsNm}</div>{" "}
+                {/* rlteTatsNm */}
                 <div className="info-container">
-                  <div className="tour-type">{best.tourType}</div>
-                  <div className="date">{best.date}</div>
+                  <div className="tour-type">{best.rlteCtgrySclsNm}</div>{" "}
+                  {/* rlteCtgrySclsNm */}
+                  <div className="date">{best.signguNm}</div> {/* signguNm */}
                 </div>
               </div>
             </div>
@@ -81,4 +70,4 @@ const BestBanner = () => {
   );
 };
 
-export default BestBanner;
+export default DaeguJunggu;

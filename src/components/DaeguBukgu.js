@@ -6,7 +6,7 @@ import "../pages/MainPage.css";
 import { useEffect, useRef, useState } from "react";
 import { fetchThemeData1 } from "../api/axios";
 
-const ThemeBanner = () => {
+const DaeguBukgu = () => {
   const swiperRef = useRef(null);
   const [themeList, setThemeList] = useState([]);
 
@@ -70,4 +70,4 @@ const ThemeBanner = () => {
   );
 };
 
-export default ThemeBanner;
+export default DaeguBukgu;
