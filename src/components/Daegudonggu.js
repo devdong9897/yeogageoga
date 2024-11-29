@@ -25,7 +25,6 @@ const Daegudonggu = () => {
 
   const getGoodData = async () => {
     const response = await fetchThemeData2();
-    console.log(response);
     if (response && response.response && response.response.body) {
       const data = response.response.body.items.item;
       setGoodData(data);
@@ -48,6 +47,22 @@ const Daegudonggu = () => {
       index !== 10
   );
 
+  // 특정 장소 링크
+  const getLink = (themeName) => {
+    if (themeName === "동촌유원지") {
+      return "https://map.naver.com/p/entry/place/13473883?c=15.00,0,0,0,dh";
+    } else if (themeName === "아양아트센터") {
+      return "https://map.naver.com/p/entry/place/11572610?c=15.00,0,0,0,dh";
+    } else if (themeName === "신세계백화점/대구점") {
+      return "https://map.naver.com/p/entry/place/38003935?c=15.00,0,0,0,dh";
+    } else if (themeName === "스타벅스/동촌유원지점") {
+      return "https://map.naver.com/p/entry/place/32046581?c=15.00,0,0,0,dh";
+    } else if (themeName === "청담한상") {
+      return "https://map.naver.com/p/entry/place/37161861?c=15.00,0,0,0,dh";
+    }
+    return;
+  };
+
   return (
     <div className="banner-container">
       <Swiper
@@ -64,11 +79,17 @@ const Daegudonggu = () => {
         {filteredgoodData.map((good, index) => (
           <SwiperSlide key={index}>
             <div className="card">
-              <img
-                src={getMatchedImage(good.rlteTatsNm)} // rlteTatsNm을 기반으로 이미지 매칭
-                alt={`Slide ${index + 1}`}
-                className="card-image"
-              />
+              <a
+                href={getLink(good.rlteTatsNm)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={getMatchedImage(good.rlteTatsNm)} // rlteTatsNm을 기반으로 이미지 매칭
+                  alt={`Slide ${index + 1}`}
+                  className="card-image"
+                />
+              </a>
               <div className="card-content">
                 <div className="place-name">{good.rlteTatsNm}</div>{" "}
                 <div className="info-container">

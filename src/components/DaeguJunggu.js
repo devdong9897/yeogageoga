@@ -26,7 +26,6 @@ const DaeguJunggu = () => {
 
   const getBestData = async () => {
     const response = await fetchThemeData3();
-    console.log(response);
     if (response && response.response && response.response.body) {
       const data = response.response.body.items.item;
       setBestData(data);
@@ -53,6 +52,24 @@ const DaeguJunggu = () => {
       index !== 10
   );
 
+  // 특정 장소 링크
+  const getLink = (themeName) => {
+    if (themeName === "국채보상운동기념공원") {
+      return "https://map.naver.com/p/entry/place/13351829?c=15.00,0,0,0,dh";
+    } else if (themeName === "228기념중앙공원") {
+      return "https://map.naver.com/p/entry/place/11632884?c=15.00,0,0,0,dh";
+    } else if (themeName === "서문시장") {
+      return "https://map.naver.com/p/entry/place/12764360?c=15.00,0,0,0,dh";
+    } else if (themeName === "더현대/대구") {
+      return "https://map.naver.com/p/entry/place/20392932?c=15.00,0,0,0,dh";
+    } else if (themeName === "토요코인호텔/동성로점") {
+      return "https://map.naver.com/p/entry/place/1257222682?c=15.00,0,0,0,dh";
+    } else if (themeName === "김광석다시그리기길") {
+      return "https://map.naver.com/p/entry/place/33800325?c=15.00,0,0,0,dh";
+    }
+    return;
+  };
+
   return (
     <div className="banner-container">
       <Swiper
@@ -69,11 +86,17 @@ const DaeguJunggu = () => {
         {filteredgoodData.map((best, index) => (
           <SwiperSlide key={index}>
             <div className="card">
-              <img
-                src={getMatchedImage(best.rlteTatsNm)} // rlteTatsNm을 기반으로 이미지 매칭
-                alt={`Slide ${index + 1}`}
-                className="card-image"
-              />
+              <a
+                href={getLink(best.rlteTatsNm)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={getMatchedImage(best.rlteTatsNm)} // rlteTatsNm을 기반으로 이미지 매칭
+                  alt={`Slide ${index + 1}`}
+                  className="card-image"
+                />
+              </a>
               <div className="card-content">
                 <div className="place-name">{best.rlteTatsNm}</div>{" "}
                 <div className="info-container">
