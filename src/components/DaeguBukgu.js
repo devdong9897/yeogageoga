@@ -10,6 +10,17 @@ const DaeguBukgu = () => {
   const swiperRef = useRef(null);
   const [themeList, setThemeList] = useState([]);
 
+  // 이미지 매핑 테이블
+  const imageMap = {
+    벽강물회: "/images/벽강물회.jpg",
+    파이퍼: "/images/파이퍼.jpg",
+    "맥도날드/대구복현DT점": "/images/맥도날드.jpg",
+    "EXCO/동관": "/images/엑스코1.jpg",
+    "EXCO/서관": "/images/엑스코2.jpg",
+    연암공원: "/images/연암공원.jpg",
+    컨벤션비지니스호텔: "/images/컨벤션.jpg",
+  };
+
   useEffect(() => {
     getListData();
   }, []);
@@ -23,11 +34,22 @@ const DaeguBukgu = () => {
     }
   };
 
-  // 기본 이미지 순서를 생성하는 함수
-  const getDefaultImage = (index) => {
-    const imageIndex = (index % 3) + 1; // 예: 5개의 기본 이미지 순서대로 사용
-    return `/images/test${imageIndex}.jpg`;
+  // 이미지 매칭 함수
+  const getMatchedImage = (themeName) => {
+    return imageMap[themeName] || "/images/default.jpg";
   };
+
+  // 잘못된 데이터 제외
+  const filteredThemeList = themeList.filter(
+    (_, index) =>
+      index !== 5 &&
+      index !== 10 &&
+      index !== 1 &&
+      index !== 3 &&
+      index !== 9 &&
+      index !== 7 &&
+      index !== 12
+  );
 
   return (
     <div className="banner-container">
@@ -42,28 +64,25 @@ const DaeguBukgu = () => {
         }}
         modules={[Navigation]}
       >
-        {themeList.map((theme, index) => (
+        {filteredThemeList.map((theme, index) => (
           <SwiperSlide key={index}>
             <div className="card">
               <img
-                src={theme.image || getDefaultImage(index)} // 이미지가 없으면 순차적으로 기본 이미지 사용
+                src={getMatchedImage(theme.rlteTatsNm)} // rlteTatsNm을 기반으로 이미지 매칭
                 alt={`Slide ${index + 1}`}
                 className="card-image"
               />
               <div className="card-content">
-                <div className="place-name">{theme.rlteTatsNm}</div>{" "}
-                {/* rlteTatsNm */}
+                <div className="place-name">{theme.rlteTatsNm}</div>
                 <div className="info-container">
-                  <div className="tour-type">{theme.rlteCtgrySclsNm}</div>{" "}
-                  {/* rlteCtgrySclsNm */}
-                  <div className="date">{theme.signguNm}</div> {/* signguNm */}
+                  <div className="tour-type">{theme.rlteCtgrySclsNm}</div>
+                  <div className="date">{theme.rlteBsicAdres}</div>
                 </div>
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* 네비게이션 버튼 */}
       <button className="button button-prev-theme">{"<"}</button>
       <button className="button button-next-theme">{">"}</button>
     </div>

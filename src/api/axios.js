@@ -26,7 +26,7 @@ export const fetchThemeData1 = async () => {
     const response = await instance2.get("/areaBasedList", {
       params: {
         pageNo: 1,
-        numOfRows: 10,
+        numOfRows: 14,
         MobileOS: "ETC",
         MobileApp: "AppTest",
         baseYm: "202408",
@@ -66,7 +66,7 @@ export const fetchThemeData3 = async () => {
     const response = await instance2.get("/areaBasedList", {
       params: {
         pageNo: 1,
-        numOfRows: 10,
+        numOfRows: 16,
         MobileOS: "ETC",
         MobileApp: "AppTest",
         baseYm: "202408",

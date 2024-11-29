@@ -10,6 +10,15 @@ const Daegudonggu = () => {
   const swiperRef = useRef(null);
   const [goodData, setGoodData] = useState([]);
 
+  // 이미지 매핑 테이블
+  const imageMap = {
+    동촌유원지: "/images/동촌.jpg",
+    아양아트센터: "/images/아양센터.jpg",
+    "신세계백화점/대구점": "/images/신세계.jpg",
+    "스타벅스/대구동촌유원지점": "/images/스타벅스.jpg",
+    청담한상: "/images/청담한상.jpg",
+  };
+
   useEffect(() => {
     getGoodData();
   }, []);
@@ -23,11 +32,21 @@ const Daegudonggu = () => {
     }
   };
 
-  // 기본 이미지 순서를 생성하는 함수
-  const getDefaultImage = (index) => {
-    const imageIndex = (index % 3) + 1; // 예: 3개의 기본 이미지를 순차적으로 사용
-    return `/images/test${imageIndex}.jpg`;
+  // 이미지 매칭 함수
+  const getMatchedImage = (themeName) => {
+    return imageMap[themeName] || "/images/default.jpg";
   };
+
+  // 잘못된 데이터 제외
+  const filteredgoodData = goodData.filter(
+    (_, index) =>
+      index !== 5 &&
+      index !== 6 &&
+      index !== 7 &&
+      index !== 8 &&
+      index !== 9 &&
+      index !== 10
+  );
 
   return (
     <div className="banner-container">
@@ -42,21 +61,19 @@ const Daegudonggu = () => {
         }}
         modules={[Navigation]}
       >
-        {goodData.map((good, index) => (
+        {filteredgoodData.map((good, index) => (
           <SwiperSlide key={index}>
             <div className="card">
               <img
-                src={good.image || getDefaultImage(index)} // 이미지가 없으면 순차적으로 기본 이미지 사용
+                src={getMatchedImage(good.rlteTatsNm)} // rlteTatsNm을 기반으로 이미지 매칭
                 alt={`Slide ${index + 1}`}
                 className="card-image"
               />
               <div className="card-content">
                 <div className="place-name">{good.rlteTatsNm}</div>{" "}
-                {/* rlteTatsNm */}
                 <div className="info-container">
                   <div className="tour-type">{good.rlteCtgrySclsNm}</div>{" "}
-                  {/* rlteCtgrySclsNm */}
-                  <div className="date">{good.signguNm}</div> {/* signguNm */}
+                  <div className="date">{good.rlteBsicAdres}</div>
                 </div>
               </div>
             </div>
