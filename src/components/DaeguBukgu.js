@@ -50,7 +50,8 @@ const DaeguBukgu = () => {
       index !== 9 &&
       index !== 7 &&
       index !== 12 &&
-      index !== 15
+      index !== 15 &&
+      index !== 8
   );
 
   // 특정 장소 링크
@@ -61,8 +62,6 @@ const DaeguBukgu = () => {
       return "https://map.naver.com/p/entry/place/11566331?c=15.00,0,0,0,dh";
     } else if (themeName === "파이퍼") {
       return "https://map.naver.com/p/entry/place/1867755391?c=15.00,0,0,0,dh";
-    } else if (themeName === "맥도날드/대구복현DT점") {
-      return "https://map.naver.com/p/entry/place/37197373?c=15.00,0,0,0,dh";
     } else if (themeName === "연암공원") {
       return "https://map.naver.com/p/entry/place/16339204?c=15.00,0,0,0,dh";
     } else if (themeName === "컨벤션비지니스호텔") {
@@ -101,6 +100,11 @@ const DaeguBukgu = () => {
                   src={getMatchedImage(theme.rlteTatsNm)} // rlteTatsNm을 기반으로 이미지 매칭
                   alt={`Slide ${index + 1}`}
                   className="card-image"
+                />
+                <img
+                  src="/images/map.png"
+                  alt="지도 보기"
+                  className="map-icon"
                 />
               </a>
               <div className="card-content">

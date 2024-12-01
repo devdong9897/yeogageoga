@@ -98,6 +98,12 @@
   border-radius: 15px 15px 0 0;
 }
 
+.map-icon {
+  width: 75px;
+  height: 40px;
+  margin-top: -100px;
+}
+
 .card-content {
   padding: 15px;
   padding-bottom: 20px;
@@ -162,6 +168,8 @@
   color: #87ceeb;
 }
 
+/* 슬라이드 끝 */
+
 /* 유튜브 */
 .y-viedo {
   position: relative;
@@ -183,8 +191,6 @@
 }
 
 /* 유튜브 끝 */
-
-/* 슬라이드 끝 */
 
 /* 네비게이션 버튼 */
 .button-prev-good {
