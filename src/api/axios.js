@@ -12,6 +12,75 @@ const instance = axios.create({
   },
 });
 
+// 명소 api
+const instance2 = axios.create({
+  baseURL: "http://apis.data.go.kr/B551011/TarRlteTarService",
+  params: {
+    serviceKey:
+      "uAkBXF4PejwJ8aGo7Vey7WfAHmTJh48+lr0MlFzL2ACpenybDEctfTbv2d70kRbl1rT4dbNW0aPDAYv77HjfZg==",
+  },
+});
+
+export const fetchThemeData1 = async () => {
+  try {
+    const response = await instance2.get("/areaBasedList", {
+      params: {
+        pageNo: 1,
+        numOfRows: 17,
+        MobileOS: "ETC",
+        MobileApp: "AppTest",
+        baseYm: "202408",
+        areaCd: "27",
+        signguCd: "27230",
+        _type: "json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchThemeData2 = async () => {
+  try {
+    const response = await instance2.get("/areaBasedList", {
+      params: {
+        pageNo: 1,
+        numOfRows: 20,
+        MobileOS: "ETC",
+        MobileApp: "AppTest",
+        baseYm: "202408",
+        areaCd: "27",
+        signguCd: "27140",
+        _type: "json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchThemeData3 = async () => {
+  try {
+    const response = await instance2.get("/areaBasedList", {
+      params: {
+        pageNo: 1,
+        numOfRows: 19,
+        MobileOS: "ETC",
+        MobileApp: "AppTest",
+        baseYm: "202408",
+        areaCd: "27",
+        signguCd: "27110",
+        _type: "json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // 지역기반 관광정보 api
 export const getAreaBasedList = async (
   pageNo = 1,

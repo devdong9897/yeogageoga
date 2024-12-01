@@ -2,9 +2,9 @@ import React from "react";
 import ImageSlider from "../components/ImageSlider";
 import "./MainPage.css";
 import YouTubeVideo from "../components/YouTube";
-import ThemeBanner from "../components/ThemeBanner";
-import GoodBanner from "../components/GoodBanner";
-import BestBanner from "../components/BestBanner";
+import DaeguBukgu from "../components/DaeguBukgu";
+import Daegudonggu from "../components/Daegudonggu";
+import DaeguJunggu from "../components/DaeguJunggu";
 import PortalSite from "../components/PortalSite";
 
 const MainPage = () => {
@@ -14,14 +14,15 @@ const MainPage = () => {
       <div className="banner-section" />
       <YouTubeVideo />
       <div className="banner-section" />
-      <p className="themetext">대구 테마명소</p>
-      <ThemeBanner />
+      <p className="thememenutext">대구 추천 명소</p>
+      <p className="themetext">북구</p>
+      <DaeguBukgu />
       <div className="banner-section" />
-      <p className="themetext">대구 추천명소</p>
-      <GoodBanner />
+      <p className="themetext">동구</p>
+      <Daegudonggu />
       <div className="banner-section" />
-      <p className="themetext">대구 TOP명소</p>
-      <BestBanner />
+      <p className="themetext">중구</p>
+      <DaeguJunggu />
       <div className="banner-section" />
       <PortalSite />
       <div className="banner-section" />
