@@ -104,6 +104,11 @@ const DaeguJunggu = () => {
                   alt={`Slide ${index + 1}`}
                   className="card-image"
                 />
+                <img
+                  src="/images/map.png"
+                  alt="지도 보기"
+                  className="map-icon"
+                />
               </a>
               <div className="card-content">
                 <div className="place-name">{best.rlteTatsNm}</div>{" "}
