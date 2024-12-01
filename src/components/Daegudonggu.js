@@ -17,6 +17,9 @@ const Daegudonggu = () => {
     "신세계백화점/대구점": "/images/신세계.jpg",
     "스타벅스/대구동촌유원지점": "/images/스타벅스.jpg",
     청담한상: "/images/청담한상.jpg",
+    대구아쿠아리움: "/images/아쿠아리움.jpg",
+    "마고플레인/아양점": "images/마고.jpg",
+    불로전통시장: "/images/불로전통시장.jpg",
   };
 
   useEffect(() => {
@@ -44,7 +47,13 @@ const Daegudonggu = () => {
       index !== 7 &&
       index !== 8 &&
       index !== 9 &&
-      index !== 10
+      index !== 10 &&
+      index !== 12 &&
+      index !== 11 &&
+      index !== 14 &&
+      index !== 16 &&
+      index !== 17 &&
+      index !== 18
   );
 
   // 특정 장소 링크
@@ -59,7 +68,14 @@ const Daegudonggu = () => {
       return "https://map.naver.com/p/entry/place/32046581?c=15.00,0,0,0,dh";
     } else if (themeName === "청담한상") {
       return "https://map.naver.com/p/entry/place/37161861?c=15.00,0,0,0,dh";
+    } else if (themeName === "대구아쿠아리움") {
+      return "https://map.naver.com/p/entry/place/68685079?c=15.00,0,0,0,dh";
+    } else if (themeName === "마고플레인/아양점") {
+      return "https://map.naver.com/p/entry/place/1597504581?c=15.00,0,0,0,dh";
+    } else if (themeName === "불로전통시장") {
+      return "https://map.naver.com/p/entry/place/19732975?c=15.00,0,0,0,dh";
     }
+
     return;
   };
 

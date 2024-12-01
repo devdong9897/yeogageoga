@@ -19,6 +19,8 @@ const DaeguBukgu = () => {
     "EXCO/서관": "/images/엑스코2.jpg",
     연암공원: "/images/연암공원.jpg",
     컨벤션비지니스호텔: "/images/컨벤션.jpg",
+    유통단지공원물놀이장: "/images/물놀이장.jpg",
+    "NC아울렛/엑스코점": "/images/nc.jpg",
   };
 
   useEffect(() => {
@@ -47,7 +49,8 @@ const DaeguBukgu = () => {
       index !== 3 &&
       index !== 9 &&
       index !== 7 &&
-      index !== 12
+      index !== 12 &&
+      index !== 15
   );
 
   // 특정 장소 링크
@@ -64,6 +67,10 @@ const DaeguBukgu = () => {
       return "https://map.naver.com/p/entry/place/16339204?c=15.00,0,0,0,dh";
     } else if (themeName === "컨벤션비지니스호텔") {
       return "https://map.naver.com/p/entry/place/16121358?c=15.00,0,0,0,dh";
+    } else if (themeName === "유통단지공원물놀이장") {
+      return "https://map.naver.com/p/entry/place/16340632?c=15.00,0,0,0,dh";
+    } else if (themeName === "NC아울렛/엑스코점") {
+      return "https://map.naver.com/p/entry/place/31253535?c=15.00,0,0,0,dh";
     }
 
     return;

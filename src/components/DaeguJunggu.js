@@ -18,6 +18,8 @@ const DaeguJunggu = () => {
     "더현대/대구": "/images/더현대.jpg",
     "토요코인호텔/동성로점": "/images/토요코인.jpg",
     김광석다시그리기길: "/images/김광석.jpg",
+    스파크랜드: "/images/스파크랜드.jpg",
+    달성공원: "/images/달성.jpg",
   };
 
   useEffect(() => {
@@ -49,7 +51,8 @@ const DaeguJunggu = () => {
       index !== 9 &&
       index !== 3 &&
       index !== 8 &&
-      index !== 10
+      index !== 10 &&
+      index !== 17
   );
 
   // 특정 장소 링크
@@ -66,7 +69,12 @@ const DaeguJunggu = () => {
       return "https://map.naver.com/p/entry/place/1257222682?c=15.00,0,0,0,dh";
     } else if (themeName === "김광석다시그리기길") {
       return "https://map.naver.com/p/entry/place/33800325?c=15.00,0,0,0,dh";
+    } else if (themeName === "스파크랜드") {
+      return "https://map.naver.com/p/entry/place/1689741560?c=15.00,0,0,0,dh";
+    } else if (themeName === "달성공원") {
+      return "https://map.naver.com/p/entry/place/11622401?c=15.00,0,0,0,dh";
     }
+
     return;
   };
 
